@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" id="htmlRoot">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ajay Pal — Coding Profiles</title>
+<style>
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:#ffffff;
+    color:#111111;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", "Noto Sans SC", "Noto Sans JP", "Noto Sans KR", Arial, sans-serif;
+    display:flex;
+    justify-content:center;
+    min-height:100vh;
+  }
+  .wrap{
+    width:100%;
+    max-width:480px;
+    padding:60px 24px;
+    text-align:center;
+  }
+  .lang-select{
+    margin-bottom:48px;
+  }
+  select{
+    font-family:inherit;
+    font-size:14px;
+    padding:8px 12px;
+    border:1px solid #dddddd;
+    border-radius:8px;
+    background:#ffffff;
+    color:#111111;
+    cursor:pointer;
+  }
+  h1{
+    font-size:26px;
+    font-weight:600;
+    margin:0 0 8px;
+  }
+  .subtitle{
+    font-size:15px;
+    color:#666666;
+    margin:0 0 40px;
+  }
+  .profiles{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .profile-link{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:16px 20px;
+    border:1px solid #e5e5e5;
+    border-radius:12px;
+    text-decoration:none;
+    color:#111111;
+    font-size:15px;
+    font-weight:500;
+    transition:border-color 0.15s ease, background 0.15s ease;
+  }
+  .profile-link:hover{
+    border-color:#111111;
+    background:#fafafa;
+  }
+  .arrow{
+    color:#999999;
+  }
+  .recursion-btn{
+    margin-top:14px;
+    width:100%;
+    background:#ffffff;
+    font-family:inherit;
+    cursor:pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="lang-select">
+    <select id="langPicker" onchange="setLang(this.value)">
+      <option value="en">English</option>
+      <option value="hi">हिन्दी</option>
+      <option value="zh">中文</option>
+      <option value="ja">日本語</option>
+      <option value="ko">한국어</option>
+      <option value="ru">Русский</option>
+    </select>
+  </div>
+
+  <h1 id="heading">Ajay Pal</h1>
+  <p class="subtitle" id="subtitle">Coding Profiles</p>
+
+  <div class="profiles">
+    <a class="profile-link" href="https://leetcode.com/u/ajayapk007/" target="_blank" rel="noopener">
+      <span>LeetCode</span>
+      <span class="arrow">→</span>
+    </a>
+    <a class="profile-link" href="https://www.geeksforgeeks.org/profile/palbanu89g?tab=activity" target="_blank" rel="noopener">
+      <span>GeeksforGeeks</span>
+      <span class="arrow">→</span>
+    </a>
+  </div>
+
+  <button class="profile-link recursion-btn" id="recurseBtn" onclick="location.reload()">
+    <span id="recurseLabel">Click here to understand recursion</span>
+    <span class="arrow">→</span>
+  </button>
+</div>
+
+<script>
+  const translations = {
+    en: { subtitle: "Coding Profiles", recurse: "Click here to understand recursion" },
+    hi: { subtitle: "कोडिंग प्रोफाइल", recurse: "रिकर्शन समझने के लिए यहाँ क्लिक करें" },
+    zh: { subtitle: "编程档案", recurse: "点击这里理解递归" },
+    ja: { subtitle: "コーディングプロフィール", recurse: "再帰を理解するにはここをクリック" },
+    ko: { subtitle: "코딩 프로필", recurse: "재귀를 이해하려면 여기를 클릭하세요" },
+    ru: { subtitle: "Профили по программированию", recurse: "Нажмите здесь, чтобы понять рекурсию" }
+  };
+
+  function setLang(lang){
+    document.getElementById('subtitle').textContent = translations[lang].subtitle;
+    document.getElementById('recurseLabel').textContent = translations[lang].recurse;
+    document.getElementById('htmlRoot').setAttribute('lang', lang);
+  }
+</script>
+
+</body>
+</html>
